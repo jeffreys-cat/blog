@@ -6,7 +6,7 @@
     "build": "next build",
     "db:generate": "drizzle-kit generate:mysql",
     "db:push": "drizzle-kit push:mysql",
-    "dev": "next dev",
+    "dev": "NODE_ENV=development next dev",
     "dev:email": "email dev -p 3333",
     "dev:turbo": "next dev --turbo",
     "lint": "next lint",
