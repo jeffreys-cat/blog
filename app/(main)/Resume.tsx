@@ -1,14 +1,14 @@
 import Image, { type StaticImageData } from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 import { BriefcaseIcon } from '~/assets'
-import eightNinthsLogo from '~/assets/company/8ninths.jpeg'
-import abletiveLogo from '~/assets/company/abletive.png'
-import vvsLogo from '~/assets/company/vvs.png'
-import zolplayLogo from '~/assets/company/zolplay.png'
-
+import qi360Logo from '~/assets/company/360.png'
+import baiduLogo from '~/assets/company/baidu.png'
+import jiedaibaoLogo from '~/assets/company/jiedaibao.png'
+import selectdbLogo from '~/assets/company/selectdb.png'
 type Resume = {
-  company: string
+  company: React.ReactNode
   title: string
   start: string | { label: string; dateTime: number }
   end: string | { label: string; dateTime: number }
@@ -16,35 +16,46 @@ type Resume = {
 }
 const resume: Resume[] = [
   {
-    company: '深圳市佐玩信息技术有限公司',
-    title: '创始人 CEO',
-    logo: zolplayLogo,
-    start: '2021',
+    company: 'SelectDB',
+    title: '资深前端工程师',
+    logo: selectdbLogo,
+    start: '2022',
     end: {
       label: '至今',
       dateTime: new Date().getFullYear(),
     },
   },
   {
-    company: 'very very spaceship',
-    title: '软件工程师',
-    logo: vvsLogo,
-    start: '2018',
-    end: '2020',
+    company: '百度',
+    title: '高级前端工程师',
+    logo: baiduLogo,
+    start: '2019',
+    end: '2022',
   },
   {
-    company: '8ninths Inc.',
-    title: 'AR & 全栈工程师',
-    logo: eightNinthsLogo,
+    company: (
+      <span>
+        360
+        <Link
+          href="https://75.team/"
+          target="_blank"
+          style={{ color: 'rgb(101, 163, 13)' }}
+        >
+          &nbsp;(奇舞团)
+        </Link>
+      </span>
+    ),
+    title: '高级前端工程师',
+    logo: qi360Logo,
     start: '2017',
-    end: '2018',
+    end: '2019',
   },
   {
-    company: 'Abletive',
-    title: '创始人',
-    logo: abletiveLogo,
-    start: '2014',
-    end: '2016',
+    company: '借贷宝',
+    title: '前端工程师',
+    logo: jiedaibaoLogo,
+    start: '2016',
+    end: '2017',
   },
 ]
 
