@@ -103,12 +103,12 @@ export function Headline() {
           platform="twitter"
         />
         {/* <SocialLink
-          href="https://cali.so/youtube"
+          href="https://jeffreys-blog.vercel.app//youtube"
           aria-label="我的 YouTube"
           platform="youtube"
         /> */}
         {/* <SocialLink
-          href="https://cali.so/bilibili"
+          href="https://jeffreys-blog.vercel.app//bilibili"
           aria-label="我的 Bilibili"
           platform="bilibili"
         /> */}
@@ -118,7 +118,7 @@ export function Headline() {
           platform="github"
         />
         {/* <SocialLink
-          href="https://cali.so/tg"
+          href="https://jeffreys-blog.vercel.app//tg"
           aria-label="我的 Telegram"
           platform="telegram"
         /> */}

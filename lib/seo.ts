@@ -4,7 +4,7 @@ export const seo = {
     'Jeffrey, 彩猫, 黑猫',
   url: new URL(
     process.env.NODE_ENV === 'production'
-      ? 'https://cali.so'
+      ? 'https://jeffreys-blog.vercel.app/'
       : 'http://localhost:3000'
   ),
 } as const
