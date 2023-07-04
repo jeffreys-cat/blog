@@ -7,7 +7,7 @@ import Layout from './Layout'
 
 const NewGuestbookEmail = ({
   link = 'https://caliso/guestbook',
-  userFirstName = 'Cali',
+  userFirstName = 'Jeffrey',
   userLastName = 'Castle',
   userImageUrl = 'https://jeffreys-blog.vercel.app//icon.png',
   commentContent = '*测试评论*\n- Wow wtf\n- Cool',
