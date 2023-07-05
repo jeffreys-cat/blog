@@ -38,7 +38,8 @@ export function Activity() {
       enabled:
         typeof window === 'undefined'
           ? false
-          : new URL(window.location.href).hostname === 'cali.so',
+          : new URL(window.location.href).hostname ===
+            'jeffreys-blog.vercel.app',
     }
   )
   const [open, setOpen] = React.useState(false)
