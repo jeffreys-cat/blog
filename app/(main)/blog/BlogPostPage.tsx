@@ -74,7 +74,8 @@ export function BlogPostPage({
                     alt=""
                     className="select-none"
                     unoptimized
-                    fill
+                    width={576}
+                    height={1024}
                     aria-hidden={true}
                   />
                 </div>
