@@ -4,5 +4,6 @@ export const navigationItems = [
   { href: '/about', text: '阅读' },
   // { href: '/girlfriend', text: '晒美女女友' },
   { href: '/guestbook', text: '留言墙' },
+  { href: '/ama', text: 'AMA 咨询' },
   // { href: '/about', text: '关于' },
 ]

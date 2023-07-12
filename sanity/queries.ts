@@ -65,9 +65,11 @@ export const getBlogPostQuery = groq`
       _type == "image" => {
         "url": asset->url,
         "lqip": asset->metadata.lqip,
-        "dimensions": asset->metadata.dimensions
+        "dimensions": asset->metadata.dimensions,
+        ...
       }
     },
+    "headings": body[length(style) == 2 && string::startsWith(style, "h")],
     mainImage {
       _ref,
       asset->{

@@ -1,6 +1,6 @@
 'use client'
 
-import { Portal } from '@headlessui/react'
+import { parseDateTime } from '@zolplay/utils'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
@@ -25,6 +25,7 @@ import { prettifyNumber } from '~/lib/math'
 import { type PostDetail } from '~/sanity/schemas/post'
 
 import { BlogPostCard } from './BlogPostCard'
+import { BlogPostTableOfContents } from './BlogPostTableOfContents'
 
 export function BlogPostPage({
   post,
@@ -39,8 +40,13 @@ export function BlogPostPage({
 }) {
   return (
     <Container className="mt-16 lg:mt-32">
-      <div className="xl:relative">
-        <div className="mx-auto max-w-2xl">
+      <div className="w-full md:flex md:justify-between xl:relative">
+        <aside className="hidden w-[160px] shrink-0 lg:block">
+          <div className="sticky top-2 pt-20">
+            <BlogPostTableOfContents headings={post.headings} />
+          </div>
+        </aside>
+        <div className="max-w-2xl md:flex-1 md:shrink-0">
           <Button
             href="/blog"
             variant="secondary"
@@ -100,9 +106,9 @@ export function BlogPostPage({
                 >
                   <CalendarIcon />
                   <span>
-                    {Intl.DateTimeFormat('zh').format(
-                      new Date(post.publishedAt)
-                    )}
+                    {parseDateTime({
+                      date: new Date(post.publishedAt),
+                    })?.format('YYYY/MM/DD')}
                   </span>
                 </time>
                 <span className="inline-flex items-center space-x-1.5">
@@ -169,16 +175,25 @@ export function BlogPostPage({
             </Prose>
           </article>
         </div>
+        <aside className="hidden w-[90px] shrink-0 lg:block">
+          <div className="sticky top-2 flex justify-end pt-20">
+            <BlogReactions
+              _id={post._id}
+              mood={post.mood}
+              reactions={reactions}
+            />
+          </div>
+        </aside>
       </div>
 
       {post.related && post.related.length > 0 ? (
         <section className="mb-12 mt-32">
-          <h2 className="flex items-center text-lg font-bold text-zinc-900 dark:text-zinc-100">
+          <h2 className="mb-6 flex items-center justify-center text-lg font-bold text-zinc-900 dark:text-zinc-100">
             <PencilSwooshIcon className="h-5 w-5 flex-none" />
             <span className="ml-2">相关文章</span>
           </h2>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+          <div className="mt-6 grid grid-cols-1 justify-center gap-6 md:grid-cols-[repeat(auto-fit,75%)] lg:grid-cols-[repeat(auto-fit,45%)] lg:gap-8">
             {post.related.map((post, idx) => (
               <BlogPostCard
                 post={post}
@@ -192,25 +207,6 @@ export function BlogPostPage({
 
       <ClientOnly>
         <BlogPostStateLoader post={post} />
-      </ClientOnly>
-
-      <ClientOnly>
-        <Portal>
-          <div className="pointer-events-none fixed inset-0 z-50 h-full w-full sm:px-8">
-            <div className="mx-auto h-full max-w-7xl px-4 sm:px-8 lg:px-12">
-              <div className="mx-auto flex h-full max-w-2xl justify-between lg:max-w-5xl">
-                <div className=""></div>
-                <div className="hidden h-full flex-col items-center justify-center lg:flex">
-                  <BlogReactions
-                    _id={post._id}
-                    mood={post.mood}
-                    reactions={reactions}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </Portal>
       </ClientOnly>
     </Container>
   )

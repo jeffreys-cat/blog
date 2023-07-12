@@ -35,7 +35,10 @@ export function PortableTextBlocksH1({
   children,
 }: PortableTextComponentProps<any>) {
   return (
-    <h1 data-blockid={value._key} className="group relative pr-3 md:pr-0">
+    <h1
+      data-blockid={value._key}
+      className="group relative pr-3 after:pointer-events-none after:inline after:select-none after:opacity-0 after:transition-opacity after:will-change-[opacity] after:content-['_#'] hover:after:opacity-10 md:pr-0"
+    >
       <ClientOnly>
         <Commentable blockId={value._key} />
       </ClientOnly>
@@ -49,7 +52,12 @@ export function PortableTextBlocksH2({
   children,
 }: PortableTextComponentProps<any>) {
   return (
-    <h2 data-blockid={value._key} className="group relative pr-3 md:pr-0">
+    <h2
+      id={value._key}
+      data-blockid={value._key}
+      className="group relative pr-3 after:pointer-events-none after:inline after:select-none after:opacity-0 after:transition-opacity after:will-change-[opacity] after:content-['_#'] hover:after:opacity-100 md:pr-0"
+    >
+      <a href={`#${value._key as string}`} className="absolute inset-0" />
       <ClientOnly>
         <Commentable blockId={value._key} />
       </ClientOnly>
@@ -63,7 +71,12 @@ export function PortableTextBlocksH3({
   children,
 }: PortableTextComponentProps<any>) {
   return (
-    <h3 data-blockid={value._key} className="group relative pr-3 md:pr-0">
+    <h3
+      id={value._key}
+      data-blockid={value._key}
+      className="group relative pr-3 after:pointer-events-none after:inline after:select-none after:opacity-0 after:transition-opacity after:will-change-[opacity] after:content-['_#'] hover:after:opacity-10 md:pr-0"
+    >
+      <a href={`#${value._key as string}`} className="absolute inset-0" />
       <ClientOnly>
         <Commentable blockId={value._key} />
       </ClientOnly>
@@ -77,7 +90,12 @@ export function PortableTextBlocksH4({
   children,
 }: PortableTextComponentProps<any>) {
   return (
-    <h4 data-blockid={value._key} className="group relative pr-3 md:pr-0">
+    <h4
+      id={value._key}
+      data-blockid={value._key}
+      className="group relative pr-3 after:pointer-events-none after:inline after:select-none after:opacity-0 after:transition-opacity after:will-change-[opacity] after:content-['_#'] hover:after:opacity-10 md:pr-0"
+    >
+      <a href={`#${value._key as string}`} className="absolute inset-0" />
       <ClientOnly>
         <Commentable blockId={value._key} />
       </ClientOnly>
