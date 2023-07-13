@@ -64,6 +64,5 @@ export default authMiddleware({
     '/girlfriend',
     '/rss',
     '/feed',
-    '/ama',
   ],
 })
